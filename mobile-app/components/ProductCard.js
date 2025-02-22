@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Button } from 'react-native';
+import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const ProductCard = () => {
-    const handlePress = () => {
-        alert('Meer informatie over dit product...');
-    };
+  const navigation = useNavigation();
 
   return (
     <View style={styles.card}>
@@ -14,23 +13,29 @@ const ProductCard = () => {
       />
       <Text style={styles.title}>Blue-eyed runes necklace</Text>
       <Text style={styles.price}>€15.99</Text>
-      <Button title="Bekijk product" onPress={handlePress} />
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Product')}
+      >
+        <Text style={styles.buttonText}>Bekijk product</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    width: '44%',
+    width: '80%',
     padding: 12,
     backgroundColor: '#fff',
     borderRadius: 5,
     shadowColor: '#000',
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 5,
-    elevation: 3,
-    marginBottom: 15,
+    elevation: 5,
+    marginBottom: 16,
   },
   image: {
     width: '100%',
@@ -44,8 +49,23 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 14,
-    color: '#666',
+    color: '#444',
+    marginTop: 5
   },
+  buttonText: {
+    padding: 4,
+    borderRadius: 5,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white',
+  },
+  button: {
+    width: '100%',
+    backgroundColor: '#8153d3',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 10,
+  },  
 });
 
 export default ProductCard;
