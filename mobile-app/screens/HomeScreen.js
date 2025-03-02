@@ -28,7 +28,7 @@ const HomeScreen = ({ navigation }) => { //functie die de homepagina van de app 
                       navigation.navigate("Product", {
                         title: "Blue-eyed runes necklace",
                         price: "€15.99",
-                        image: blueEyedRunesNecklace,
+                        image:  require("../images/blue-eyed-runes-necklace.png"),
                         description: "This necklace is perfect for any occasion. It is made of high quality materials and is very durable."
                       })
                     }
