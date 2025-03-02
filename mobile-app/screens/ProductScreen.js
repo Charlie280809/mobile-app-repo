@@ -1,19 +1,39 @@
 //importeer de benodigde modules
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import ProductCard from '../components/ProductCard';
 
-const ProductScreen = ({ navigation }) => { //functie die de homepagina van de app weergeeft
-    return (
+const ProductScreen = ({ route, useState, navigation }) => { //functie die de homepagina van de app weergeeft
+  const { title, price, image, description } = route.params || {}; //haal de waarden uit de route.params
+  
+  // const [quantity, setQuantity] = useState(1); //maak een state aan voor de hoeveelheid van het product (deze state staat standaard op 1)
+  // const increaseQuantity = () => setQuantity(quantity + 1); //functie die de hoeveelheid verhoogt
+  // const decreaseQuantity = () => {
+  //   if(quantity > 1) {
+  //     setQuantity(quantity - 1); //functie die de hoeveelheid verlaagt
+  //   }
+  // };
+
+  return (
         <View style={styles.container}>
-            <Image 
-                source={require('../images/blue-eyed-runes-necklace.png')} 
-                style={styles.image}
-            />
-            <Text style={styles.title}>Blue-eyed runes necklace</Text>
-            <Text style={styles.price}>€15.99</Text>
-            <Text style={styles.description}>This necklace is perfect for any occasion. It is made of high quality materials and is very durable.</Text>
+          <Text>test test 123</Text>
+            <Image style={styles.image} source={image} />
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.price}>{price}</Text>
+            <Text style={styles.description}>{description}</Text>
+
+            {/* <View style={styles.quantityContainer}>
+              <TouchableOpacity onPress={decreaseQuantity}>
+                <Text style={styles.quantityButton}>-</Text>
+              </TouchableOpacity>
+
+              <Text style={styles.quantityText}>{quantity}</Text>
+              
+              <TouchableOpacity onPress={increaseQuantity}>
+                <Text style={styles.quantityButton}>+</Text>
+              </TouchableOpacity>
+            </View> */}
 
             <StatusBar style="auto" />
         </View>
@@ -22,6 +42,7 @@ const ProductScreen = ({ navigation }) => { //functie die de homepagina van de a
 
 export default ProductScreen;
 
+//styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,

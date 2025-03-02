@@ -1,18 +1,15 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const ProductCard = () => {
+const ProductCard = ({image, title, price }) => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.card}>
-      <Image 
-        source={require('../images/blue-eyed-runes-necklace.png')} 
-        style={styles.image} 
-      />
-      <Text style={styles.title}>Blue-eyed runes necklace</Text>
-      <Text style={styles.price}>€15.99</Text>
+      <Image source={image} style={styles.image}/>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.price}>{price}</Text>
 
       <TouchableOpacity
         style={styles.button}
