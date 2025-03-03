@@ -121,6 +121,6 @@ const styles = StyleSheet.create({
   scrollContainer: {
     alignItems: 'center',
     paddingTop: 20,
-    paddingBottom: 140, 
+    paddingBottom: 100, 
   },
 });
