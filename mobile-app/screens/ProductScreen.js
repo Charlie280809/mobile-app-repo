@@ -18,7 +18,8 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
 
   return (
         <View style={styles.container}>
-          <Text>test test 123</Text>
+            <Text>test test 123</Text> 
+            {/* //test om te kijken of de pagina werkt */}
             <Image style={styles.image} source={image} />
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.price}>{price}</Text>
