@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import ProductCard from '../components/ProductCard';
 
 const ProductScreen = ({ route, navigation }) => { //functie die de homepagina van de app weergeeft
-  const { title, price, image, description } = route.params || {}; //haal de waarden uit de route.params
+  const { title, price, image, description } = route.params; //haal de waarden uit de route.params
   
   const [quantity, setQuantity] = useState(1); //maak een state aan voor de hoeveelheid van het product (deze state staat standaard op 1)
   
@@ -19,7 +19,7 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
   return (
         <View style={styles.container}>
             <Text>test test 123</Text> 
-            {/* //test om te kijken of de pagina werkt */}
+            {/* test om te kijken of de pagina werkt */}
             <Image style={styles.image} source={image} />
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.price}>{price}</Text>

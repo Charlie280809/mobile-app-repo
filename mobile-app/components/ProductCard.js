@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const ProductCard = ({image, title, price }) => {
+const ProductCard = ({image, title, price, onPress }) => {
   const navigation = useNavigation();
 
   return (
@@ -13,7 +13,7 @@ const ProductCard = ({image, title, price }) => {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Product')}
+        onPress={onPress} //gebruik de onPress-functie die wordt meegegeven vanuit de HomeScreen.js
       >
         <Text style={styles.buttonText}>Bekijk product</Text>
       </TouchableOpacity>
