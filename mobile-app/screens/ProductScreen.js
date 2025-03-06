@@ -6,7 +6,8 @@ import ProductCard from '../components/ProductCard';
 
 const ProductScreen = ({ route, navigation }) => { //functie die de homepagina van de app weergeeft
   const { title, price, image, description } = route.params; //haal de waarden uit de route.params
-  
+  const numericPrice = parseFloat(price.replace("€", "")); // Verwijder '€' en zet om naar een getal
+
   const [quantity, setQuantity] = useState(1); //maak een state aan voor de hoeveelheid van het product (deze state staat standaard op 1)
   
   const increaseQuantity = () => setQuantity(quantity + 1); //functie die de hoeveelheid verhoogt
@@ -35,7 +36,7 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
               </TouchableOpacity>
             </View>
 
-            <Text style={styles.totalPrice}>Totaal: €{price * quantity}</Text>
+            <Text style={styles.totalPrice}>Totaal: €{(numericPrice * quantity).toFixed(2)}</Text>
             <StatusBar style="auto" />
         </View>
     );
