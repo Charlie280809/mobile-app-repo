@@ -1,5 +1,5 @@
 //importeer de benodigde modules
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
@@ -15,89 +15,51 @@ import redGemstoneNecklace from '../images/red-gemstone-necklace.png';
 import sharpTeethRing from '../images/sharp-teeth-ring.png';
 
 const HomeScreen = ({ navigation }) => { //functie die de homepagina van de app weergeeft
-    return (
+  const[products, setProducts] = useState([]); //maak een state aan voor de producten
+  
+  useEffect(() => { //dit stukje code wordt uitgevoerd zodra de pagina geladen wordt, hier haal je producten op uit de API
+    fetch( //HTTP-aanroep naar de Webflow API om productinformatie op te halen 
+      "https://api.webflow.com/v2/sites/67a3c55c66dddd03e1a0140b/products",
+      {
+        headers: {
+          Authorization: //voor toegang tot de API (als een soort van wachtwoord)
+          "Bearer c080a257e44723e32978e8fc3d376a77194f77ec768aa2de07bbc8d929cd545a",
+        },
+      }
+    )
+
+    .then((res) => res.json()) //data van de API wordt omgezet naar formaat dat ja kan gebruiken (JSON)
+    .then((data) =>
+      setProducts( //als we de data hebben, slaan we dzee op in de products state
+        data.items.map((item) => ({
+          id: item.product.id,
+          title: item.product.fieldData.name,
+          subtitle: item.product.fieldData.description,
+          price: (item.skus[0]?.fieldData.price.value || 0) / 100,
+          image: {uri: item.skus[0]?.fieldData["main-image"]?.url},
+        }))
+      )
+    )
+    .catch((err) => console.error("Error:", err)); //als er een fout optreedt, log deze in de console
+  }, []);
+  
+  return (
         <View style={styles.container}>
             <Text style={styles.heading} >Onze favorieten op dit moment!</Text>
 
             <ScrollView contentContainerStyle={styles.scrollContainer}>
-                <ProductCard 
-                    title="Blue-eyed runes necklace"
-                    price="€15.99"
-                    image={blueEyedRunesNecklace}
-                    onPress={() =>
-                      navigation.navigate("Product", {
-                        title: "Blue-eyed runes necklace",
-                        price: "€15.99",
-                        image:  require("../images/blue-eyed-runes-necklace.png"),
-                        description: "This necklace is perfect for any occasion. It is made of high quality materials and is very durable."
-                      })
-                    }
-                />
-                <ProductCard 
-                    title="Chain beads bracelet"
-                    price="€12.99"
-                    image={chainBeadsBracelet}
-                    onPress={() =>
-                      navigation.navigate("Product", {
-                        title: "Chain beads bracelet",
-                        price: "€12.99",
-                        image: chainBeadsBracelet,
-                        description: "This bracelet is perfect for any occasion. It is made of high quality materials and is very durable."
-                      })
-                    }
-                />
-                <ProductCard 
-                    title="Big skull ring"
-                    price="€19.99"
-                    image={bigSkullRing}
-                    onPress={() => 
-                      navigation.navigate("Product", {
-                        title: "Big skull ring",
-                        price: "€19.99",
-                        image: bigSkullRing,
-                        description: "This ring is perfect for any occasion. It is made of high quality materials and is very durable."
-                      })
-                    }
-                />
-                <ProductCard 
-                    title="Metal rose ring"
-                    price="€14.99"
-                    image={metalRoseRing}
-                    onPress={() =>
-                      navigation.navigate("Product", {
-                        title: "Metal rose ring",
-                        price: "€14.99",
-                        image: metalRoseRing,
-                        description: "This ring is perfect for any occasion. It is made of high quality materials and is very durable."
-                      })
-                    }
-                />
-                <ProductCard 
-                  title="Red gemstone necklace"
-                  price="€17.99"
-                  image={require('../images/red-gemstone-necklace.png')}
-                  onPress={() =>
-                    navigation.navigate("Product", {
-                      title: "Red gemstone necklace",
-                      price: "€17.99",
-                      image: redGemstoneNecklace,
-                      description: "This necklace is perfect for any occasion. It is made of high quality materials and is very durable."
-                    })
-                  }
-                />
-                <ProductCard 
-                  title="Sharp teeth ring"
-                  price="€16.99"
-                  image={require('../images/sharp-teeth-ring.png')}
-                  onPress={() =>
-                    navigation.navigate("Product", {
-                      title: "Sharp teeth ring",
-                      price: "€16.99",
-                      image: sharpTeethRing,
-                      description: "This ring is perfect for any occasion. It is made of high quality materials and is very durable."
-                    })
-                  }
-                />
+              <View style={styles.row}>
+                {products.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    title={product.title}
+                    subtitle={product.subtitle}
+                    price={product.price}
+                    image={product.image}
+                    onPress={() => navigation.navigate("Product", product)}
+                  />
+                ))}
+              </View>
             </ScrollView>
             <StatusBar style="auto" />
         </View>
