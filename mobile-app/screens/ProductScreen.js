@@ -6,7 +6,8 @@ import ProductCard from '../components/ProductCard';
 
 const ProductScreen = ({ route, navigation }) => { //functie die de homepagina van de app weergeeft
   const { title, price, image, description } = route.params; //haal de waarden uit de route.params
-  const numericPrice = parseFloat(price.replace("€", "")); // Verwijder '€' en zet om naar een getal
+  const numericPrice = Number(price); 
+
 
   const [quantity, setQuantity] = useState(1); //maak een state aan voor de hoeveelheid van het product (deze state staat standaard op 1)
   
@@ -19,7 +20,7 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
 
   return (
         <View style={styles.container}>
-            <Image style={styles.image} source={image} />
+            <Image style={styles.image} source={image} /> {/* <Image style={styles.image} source={{uri: image.uri}} />*/}
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.price}>{price}</Text>
             <Text style={styles.description}>{description}</Text>
