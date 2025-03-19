@@ -66,23 +66,28 @@ const HomeScreen = ({ navigation }) => { //functie die de homepagina van de app 
     );
 }
 
-export default HomeScreen;
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ededed',
-    alignItems: 'center',
-    justifyContent: 'center',
+  container: { //vrijwel heel de homepagina
+    backgroundColor: '#bfa86a',
+    padding: 20,
   },
-  heading: {
-    fontSize: 24,
+  heading: { //title 'Onze favorieten op dit moment!'
+    fontSize: 26,
     fontWeight: 'bold',
-    marginTop: 20,
+    color: '#1b1f3b',
+    marginBottom: 15,
+    textAlign: 'center',
   },
-  scrollContainer: {
+  scrollContainer: { //de container waarin de producten staan
     alignItems: 'center',
-    paddingTop: 20,
-    paddingBottom: 100, 
+    paddingBottom: 60,
   },
+  row: { //de rij waarin de producten staan
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 15,
+  }
 });
+
+export default HomeScreen;
