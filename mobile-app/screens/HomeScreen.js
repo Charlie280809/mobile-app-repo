@@ -6,14 +6,6 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 //importeer de productCard component
 import ProductCard from '../components/ProductCard';
 
-//importeer de afbeeldingen
-import bigSkullRing from '../images/big-skull-ring.png';
-import blueEyedRunesNecklace from '../images/blue-eyed-runes-necklace.png';
-import chainBeadsBracelet from '../images/chain-beads-bracelet.png';
-import metalRoseRing from '../images/metal-rose-ring.png';
-import redGemstoneNecklace from '../images/red-gemstone-necklace.png';
-import sharpTeethRing from '../images/sharp-teeth-ring.png';
-
 const HomeScreen = ({ navigation }) => { //functie die de homepagina van de app weergeeft
   const[products, setProducts] = useState([]); //maak een state aan voor de producten
   
