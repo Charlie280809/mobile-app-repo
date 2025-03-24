@@ -49,7 +49,7 @@ export default ProductScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#bfa86a',
     alignItems: 'center',
     justifyContent: 'center',
   },
