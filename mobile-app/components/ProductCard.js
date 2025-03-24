@@ -9,7 +9,7 @@ const ProductCard = ({image, title, price, onPress }) => {
     <View style={styles.card}>
       <Image source={image} style={styles.image}/>
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.price}>{price}</Text>
+      <Text style={styles.price}>€{price}</Text>
 
       <TouchableOpacity
         style={styles.button}
@@ -23,46 +23,48 @@ const ProductCard = ({image, title, price, onPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: '80%',
-    padding: 12,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 5,
+    width: 160,
+    height: 280,
+    padding: 16,
+    backgroundColor: '#ededed',
+    borderRadius: 10,
     elevation: 5,
-    marginBottom: 16,
+    marginBottom: 20,
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   image: {
     width: '100%',
-    height: 150,
-    borderRadius: 5,
+    height: 120,
+    borderRadius: 10,
+    resizeMode: 'cover',
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 5,
+    color: '#1b1f3b',
+    marginTop: 10,
+    textAlign: 'center',
   },
   price: {
-    fontSize: 14,
-    color: '#444',
-    marginTop: 5
-  },
-  buttonText: {
-    padding: 4,
-    borderRadius: 5,
-    fontWeight: 'bold',
+    fontSize: 16,
+    color: '#1b1f3b',
+    marginTop: 5,
     textAlign: 'center',
-    color: 'white',
   },
   button: {
     width: '100%',
-    backgroundColor: '#8153d3',
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: '#6A5ACD',
+    paddingVertical: 10,
+    borderRadius: 8,
     marginTop: 10,
-  },  
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
 });
 
 export default ProductCard;
