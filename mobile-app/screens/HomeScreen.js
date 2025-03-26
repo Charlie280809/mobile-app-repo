@@ -73,34 +73,36 @@ const HomeScreen = ({ navigation }) => { //functie die de homepagina van de app 
               onChangeText={setSearchQuery} //elke keer dat de gebruiker iets typt, wordt de zoekopdracht aangepast
             />
 
-            <View style={styles.pickerContainer}>    
-              <Picker
-              selectedValue={selectedCategory} //houd de huidige waarde van de picker bij
-              onValueChange={setSelectedCategory} //past de categorie aan wanneer de gebruiker een andere categorie selecteert
-              style={styles.picker}
-              >
-                <Picker.Item label="Alle producten" value="" />
-                {[...new Set(products.map((p) => p.category))].map((category) => (
-                  <Picker.Item
-                    key={category}
-                    label={category}
-                    value={category}
-                  />
-                ))}
-              </Picker> 
-            </View>
-
-            <View style={styles.pickerContainer}>
-              <Picker
-                selectedValue={sortOption} //houd de huidige waarde van de picker bij
-                onValueChange={setSortOption} //past de sorteeroptie aan wanneer de gebruiker een andere optie selecteert
+            <View style={styles.pickerRow}>
+              <View style={styles.pickerContainer}>    
+                <Picker
+                selectedValue={selectedCategory} //houd de huidige waarde van de picker bij
+                onValueChange={setSelectedCategory} //past de categorie aan wanneer de gebruiker een andere categorie selecteert
                 style={styles.picker}
-              >
-                <Picker.Item label="Prijs (laag - hoog)" value="price-asc" />
-                <Picker.Item label="Prijs (hoog - laag)" value="price-desc" />
-                <Picker.Item label="Naam (A - Z)" value="name-asc" />
-                <Picker.Item label="Naam (Z - A)" value="name-desc" />
-              </Picker>
+                >
+                  <Picker.Item label="Alle producten" value="" />
+                  {[...new Set(products.map((p) => p.category))].map((category) => (
+                    <Picker.Item
+                      key={category}
+                      label={category}
+                      value={category}
+                    />
+                  ))}
+                </Picker> 
+              </View>
+
+              <View style={styles.pickerContainer}>
+                <Picker
+                  selectedValue={sortOption} //houd de huidige waarde van de picker bij
+                  onValueChange={setSortOption} //past de sorteeroptie aan wanneer de gebruiker een andere optie selecteert
+                  style={styles.picker}
+                >
+                  <Picker.Item label="Prijs (<)" value="price-asc" />
+                  <Picker.Item label="Prijs (>)" value="price-desc" />
+                  <Picker.Item label="Naam (A - Z)" value="name-asc" />
+                  <Picker.Item label="Naam (Z - A)" value="name-desc" />
+                </Picker>
+              </View>
             </View>
 
             <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -139,7 +141,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 20,
   },
+  pickerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
   pickerContainer: {
+    flex: 1,
     backgroundColor: '#ededed',
     borderRadius: 8,
     marginBottom: 12,
