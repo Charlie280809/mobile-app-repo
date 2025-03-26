@@ -20,7 +20,7 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
 
   return (
         <View style={styles.container}>
-            <Image style={styles.image} source={image} /> {/* <Image style={styles.image} source={{uri: image.uri}} />*/}
+            <Image style={styles.image} source={{uri: image.uri}} />
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.price}>{price}</Text>
             <Text style={styles.description}>{description}</Text>
