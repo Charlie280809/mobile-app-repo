@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import ProductCard from '../components/ProductCard';
 
 const ProductScreen = ({ route, navigation }) => { //functie die de homepagina van de app weergeeft
   const { title, price, image, description } = route.params; //haal de waarden uit de route.params
@@ -20,7 +19,7 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
 
   return (
         <View style={styles.container}>
-            <Image style={styles.image} source={{uri: image.uri}} />
+            <Image style={styles.image} source={{uri: image.uri}}/>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.price}>{price}</Text>
             <Text style={styles.description}>{description}</Text>
