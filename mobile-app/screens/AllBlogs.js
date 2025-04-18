@@ -1,9 +1,10 @@
-// import React, { useEffect, useState } from 'react';
-// import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
-// import BlogCard from '../components/BlogCard';
+import React, { useEffect, useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import BlogCard from '../components/BlogCard';
 
 // const AllBlogs = ({ navigation }) => {
+const AllBlogs = () => {
 
 //   useEffect(() => { //dit stukje code wordt uitgevoerd zodra de pagina geladen wordt, hier haal je producten op uit de API
 //     fetch( //HTTP-aanroep naar de Webflow API om productinformatie op te halen 
@@ -33,13 +34,34 @@
 //     .catch((err) => console.error("Error:", err)); //als er een fout optreedt, log deze in de console
 //   }, []);
   
-//   return (
-//         <View style={styles.container}>
-//             <Text style={styles.heading} >Bekijk onze blogs!</Text>
+  return (
+        <View style={styles.container}>
+            <Text style={styles.heading} >Lees meer over onze blogs!</Text>
 
-//             <ScrollView contentContainerStyle={styles.scrollContainer}>
+            <ScrollView contentContainerStyle={styles.scrollContainer}>
+                    <BlogCard
+                        // key={blog.id}
+                        // title="Blog 1"
+                        // date="Datum van blog 1"
+                        // image={{uri: "https://example.com/image1.jpg"}}
+                        // onPress={() => navigation.navigate("Blog", {title: "Blog 1"})}
+                    />
+                    <BlogCard
+                        // key={blog.id}
+                        // title="Blog 2"
+                        // date="Datum van blog 2"
+                        // image={{uri: "https://example.com/image2.jpg"}}
+                        // onPress={() => navigation.navigate("Blog", {title: "Blog 2"})}
+                    />
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+            </ScrollView>
+
+{/* //             <ScrollView contentContainerStyle={styles.scrollContainer}>
 //               <View style={styles.row}>
-//                   <BlogCard
+{/* //                   <BlogCard
 //                     key={blog.id}
 //                     title={blog.title}
 //                     intro={blog.intro}
@@ -47,41 +69,29 @@
 //                     date={blog.date}
 //                     image={blog.image}
 //                     onPress={() => navigation.navigate("Blog", blog)}
-//                   />
-//               </View>
-//             </ScrollView>
-//         </View>
-//     );
-// }
+//                   /> */}
+{/* //               </View> */}
+{/* //             </ScrollView> */}
+        </View>
+    );
+}
 
-// const styles = StyleSheet.create({
-//   container:
-//     backgroundColor: '#bfa86a',
-//     padding: 20,
-//   },
-//   heading: { //title 'Onze favorieten op dit moment!'
-//     fontSize: 26,
-//     fontWeight: 'bold',
-//     color: '#1b1f3b',
-//     marginBottom: 15,
-//     textAlign: 'center',
-//   },
-//   input: {
-//     backgroundColor: '#ededed',
-//     padding: 10,
-//     borderRadius: 8,
-//     marginBottom: 20,
-//   },
-//   scrollContainer: { //de container waarin de producten staan
-//     alignItems: 'center',
-//     paddingBottom: 200,
-//   },
-//   row: { //de rij waarin de producten staan
-//     flexDirection: 'row',
-//     flexWrap: 'wrap',
-//     justifyContent: 'center',
-//     gap: 15,
-//   }
-// });
+const styles = StyleSheet.create({
+  container:{
+    backgroundColor: '#bfa86a',
+    padding: 20,
+  },
+  heading: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: '#1b1f3b',
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  scrollContainer: {
+    alignItems: 'center',
+    paddingBottom: 120,
+  },
+});
 
-// export default AllBlogs;
+export default AllBlogs;
