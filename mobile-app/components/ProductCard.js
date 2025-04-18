@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -24,7 +23,7 @@ const ProductCard = ({image, title, price, onPress }) => {
 const styles = StyleSheet.create({
   card: {
     width: 160,
-    height: 280,
+    height: 300,
     padding: 16,
     backgroundColor: '#ededed',
     borderRadius: 10,
