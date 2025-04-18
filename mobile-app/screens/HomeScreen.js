@@ -28,6 +28,21 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.buttonText}>Bekijk onze blogs</Text>
         </TouchableOpacity>
 
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Cart")}
+        >
+          <Text style={styles.buttonText}>Bekijk winkelmand</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Wishlist")}
+        >
+          <Text style={styles.buttonText}>Bekijk je verlanglijst</Text>
+        </TouchableOpacity>
+
+
     </View>
   );
 };

@@ -37,6 +37,21 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
             </View>
 
             <Text style={styles.totalPrice}>Totaal: €{(numericPrice * quantity).toFixed(2)}</Text>
+            
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => addToCart({ title, price, image, id: route.params.id }, quantity)}
+            >
+              <Text style={styles.buttonText}>Toevoegen aan winkelmand</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => addToWishlist({ title, price, image, id: route.params.id })}
+            >
+              <Text style={styles.buttonText}>Toevoegen aan wishlist</Text>
+            </TouchableOpacity>
+
             <StatusBar style="auto" />
         </View>
     );
@@ -81,8 +96,8 @@ const styles = StyleSheet.create({
   },
   quantityContainer: {
     flexDirection: 'row',
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 4,
+    marginBottom: 10,
   },
   quantityButton: {
     fontSize: 24,
@@ -103,5 +118,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#444',
     marginTop: 5
+  },
+  button: {
+    backgroundColor: '#6A5ACD',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginTop: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
