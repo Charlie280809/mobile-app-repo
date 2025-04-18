@@ -1,11 +1,10 @@
-// import React, { useState } from 'react';
-import { Statusbar } from "expo-status-bar";
+import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 // const BlogCard = ({image, title, intro, content, date, onPress }) => {
 const BlogCard = () => {
-    //   const navigation = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.card}>
@@ -17,18 +16,12 @@ const BlogCard = () => {
       <Text style={styles.title}>De prachtige titel van dit statische blogkaartje met extra tekst</Text>
       <Text style={styles.date}>23 februari 1982</Text>
 
-    <TouchableOpacity
-    style={styles.button}>
-
-        <Text style={styles.buttonText}>Lees meer</Text>
-    </TouchableOpacity>
-
-      {/* <TouchableOpacity
+      <TouchableOpacity
         style={styles.button}
-        onPress={onPress} //gebruik de onPress-functie die wordt meegegeven vanuit de HomeScreen.js
+        onPress={() => navigation.navigate("BlogScreen")}
       >
-        <Text style={styles.buttonText}>Lees meer</Text>
-      </TouchableOpacity> */}
+          <Text style={styles.buttonText}>Lees meer</Text>
+      </TouchableOpacity>
     </View>
   );
 };
