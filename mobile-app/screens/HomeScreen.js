@@ -5,44 +5,42 @@ import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image } from 'rea
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welkom bij Nocturnia!</Text>
+        <Text style={styles.title}>Welkom bij Nocturnia!</Text>
 
-        <Image
-          source={require("../images/thumbnail.jpg")}
-          style={styles.image}
-        />
+          <Image
+            source={require("../images/thumbnail.jpg")}
+            style={styles.image}
+          />
 
-        <Text style={styles.h2}>Als je houdt van de gothic en grunge aesthetic, dan ben je op de juiste site belandt. Op Nocturnia vind je variërende accessoires die aansluiten bij jouw stijl.</Text>
+          <Text style={styles.h2}>Als je houdt van de gothic en grunge aesthetic, dan ben je op de juiste site belandt. Op Nocturnia vind je variërende accessoires die aansluiten bij jouw stijl.</Text>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("AllProducts")}
-        >
-          <Text style={styles.buttonText}>Bekijk onze producten</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("AllProducts")}
+          >
+            <Text style={styles.buttonText}>Bekijk onze producten</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("AllBlogs")}
-        >
-          <Text style={styles.buttonText}>Bekijk onze blogs</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("AllBlogs")}
+          >
+            <Text style={styles.buttonText}>Bekijk onze blogs</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("Cart")}
-        >
-          <Text style={styles.buttonText}>Bekijk winkelmand</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("Cart")}
+          >
+            <Text style={styles.buttonText}>Bekijk winkelmand</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("Wishlist")}
-        >
-          <Text style={styles.buttonText}>Bekijk je verlanglijst</Text>
-        </TouchableOpacity>
-
-
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("Wishlist")}
+          >
+            <Text style={styles.buttonText}>Bekijk je verlanglijst</Text>
+          </TouchableOpacity>
     </View>
   );
 };
