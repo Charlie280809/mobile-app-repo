@@ -3,75 +3,56 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import BlogCard from '../components/BlogCard';
 
-// const AllBlogs = ({ navigation }) => {
-const AllBlogs = () => {
+const AllBlogs = ({ navigation }) => {
+  const [blogs, setBlogs] = useState([]); //maak een state aan voor de blogs
 
-//   useEffect(() => { //dit stukje code wordt uitgevoerd zodra de pagina geladen wordt, hier haal je producten op uit de API
-//     fetch( //HTTP-aanroep naar de Webflow API om productinformatie op te halen 
-//       "https://api.webflow.com/v2/sites/67a3c55c66dddd03e1a0140b/products",
-//       {
-//         headers: {
-//           Authorization: //voor toegang tot de API (als een soort van wachtwoord)
-//           "Bearer c080a257e44723e32978e8fc3d376a77194f77ec768aa2de07bbc8d929cd545a",
-//         },
-//       }
-//     )
+  useEffect(() => { //dit stukje code wordt uitgevoerd zodra de pagina geladen wordt, hier haal je producten op uit de API
+    fetch( //HTTP-aanroep naar de Webflow API om productinformatie op te halen 
+      "https://api.webflow.com/v2/collections/67bb07adca26b75c6b04003f/items",
+      {
+        headers: {
+          Authorization: //voor toegang tot de API (als een soort van wachtwoord)
+          "Bearer d524e3a4bed0c8993bc87288c39e201bcbe7a1b122a745a699440021cfff4d05",
+        },
+      }
+    )
 
-//     .then((res) => res.json()) //data van de API wordt omgezet naar formaat dat ja kan gebruiken (JSON)
-//     .then((data) =>
-//       setProducts(
-//         data.items.map((item) => ({
-//           id: item.product.id,
-//           title: item.product.fieldData.name,
-//           subtitle: item.product.fieldData.description,
-//           price: (item.skus[0]?.fieldData.price.value || 0) / 100,
-//           image: {uri: item.skus[0]?.fieldData["main-image"]?.url},
-//           category:
-//             categoryNames[item.product.fieldData.category[0]] || "Onbekend",
-//         }))
-//       )
-//     )
-//     .catch((err) => console.error("Error:", err)); //als er een fout optreedt, log deze in de console
-//   }, []);
+    .then((res) => res.json()) //data van de API wordt omgezet naar formaat dat ja kan gebruiken (JSON)
+    .then((data) =>
+      setBlogs( //als we de data hebben, slaan we dzee op in de products state
+        data.items.map((item) => ({
+          id: item.id,
+          title: item.fieldData.title,
+          intro: item.fieldData.intro,
+          // content: item.fieldData.blog-content,
+          // date: item.fieldData.blog-date,
+          // image: {uri: item.skus[0]?.fieldData["thumbnail-image"]?.url},
+        }))
+      )
+    )
+    .catch((err) => console.error("Error:", err)); //als er een fout optreedt, log deze in de console
+  }, []);
   
   return (
         <View style={styles.container}>
             <Text style={styles.heading} >Lees meer over onze blogs!</Text>
 
-            <ScrollView contentContainerStyle={styles.scrollContainer}>
-                    <BlogCard
-                        // key={blog.id}
-                        // title="Blog 1"
-                        // date="Datum van blog 1"
-                        // image={{uri: "https://example.com/image1.jpg"}}
-                        // onPress={() => navigation.navigate("Blog", {title: "Blog 1"})}
-                    />
-                    <BlogCard
-                        // key={blog.id}
-                        // title="Blog 2"
-                        // date="Datum van blog 2"
-                        // image={{uri: "https://example.com/image2.jpg"}}
-                        // onPress={() => navigation.navigate("Blog", {title: "Blog 2"})}
-                    />
-                    <BlogCard/>
-                    <BlogCard/>
-                    <BlogCard/>
-                    <BlogCard/>
-            </ScrollView>
-
-{/* //             <ScrollView contentContainerStyle={styles.scrollContainer}>
-//               <View style={styles.row}>
-{/* //                   <BlogCard
-//                     key={blog.id}
-//                     title={blog.title}
-//                     intro={blog.intro}
-//                     content={blog.content}
-//                     date={blog.date}
-//                     image={blog.image}
-//                     onPress={() => navigation.navigate("Blog", blog)}
-//                   /> */}
-{/* //               </View> */}
-{/* //             </ScrollView> */}
+             <ScrollView contentContainerStyle={styles.scrollContainer}>
+               <View style={styles.row}>
+                {blogs.map((blog) => (
+                   <BlogCard
+                    key={blog.id}
+                    title={blog.title}
+                    intro={blog.intro}
+                    blog-content={blog.content}
+                    date={blog.date}
+                    image={blog.image}
+                    onPress={() => navigation.navigate("Blog", blog)}
+                    // onPress={() => navigation.navigate("Blog", {title: blog.title})}
+                  />
+                ))}
+               </View>
+             </ScrollView>
         </View>
     );
 }

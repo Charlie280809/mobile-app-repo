@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-// const BlogCard = ({image, title, intro, content, date, onPress }) => {
-const BlogCard = () => {
+const BlogCard = ({title, onPress }) => {
   const navigation = useNavigation();
 
   return (
@@ -13,12 +12,12 @@ const BlogCard = () => {
         source={require("../images/home thumbnail.jpg")}
         style={styles.image}
       />
-      <Text style={styles.title}>De prachtige titel van dit statische blogkaartje met extra tekst</Text>
+      <Text style={styles.title}>{title}</Text>
       <Text style={styles.date}>23 februari 1982</Text>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("BlogScreen")}
+        onPress={onPress}
       >
           <Text style={styles.buttonText}>Lees meer</Text>
       </TouchableOpacity>
