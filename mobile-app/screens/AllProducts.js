@@ -1,8 +1,6 @@
-//importeer de benodigde modules
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
-//importeer de productCard component
 import ProductCard from '../components/ProductCard';
 import { Picker } from "@react-native-picker/picker";
 
