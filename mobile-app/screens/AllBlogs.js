@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
   container:{
     backgroundColor: '#bfa86a',
     padding: 20,
+    marginBottom: 80,
   },
   heading: {
     fontFamily: 'Cinzel',
