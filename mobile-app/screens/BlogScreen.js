@@ -2,6 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
+
 const BlogScreen = ({route, navigation}) => {
   const {title, date, image, intro, content} = route.params; //haal de waarden uit de route.params
   return (
@@ -10,11 +11,8 @@ const BlogScreen = ({route, navigation}) => {
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.date}>{date}</Text>
         <Image source={image} style={styles.image}/>
-
         <Text style={styles.intro}>{intro}</Text>
-
         <Text style={styles.content} numberOfLines={0}>{content}</Text>
-
         <StatusBar style="auto" />
       </ScrollView>
     </View>

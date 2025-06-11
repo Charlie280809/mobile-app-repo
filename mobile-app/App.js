@@ -21,9 +21,10 @@ export default function App() {
   useEffect(() => {
     Font.loadAsync({
       Cinzel: require('./assets/Cinzel.ttf'),
-      CinzelBold: require('./assets/CinzelBold.ttf'),
-      CinzelBlack: require('./assets/CinzelBlack.ttf'),
-      CinzelRegular: require('./assets/CinzelRegular.ttf'),
+      CinzelBold: require('./assets/cinzel.bold.ttf'),
+      CinzelDecoBold: require('./assets/CinzelBold.ttf'),
+      CinzelDecoBlack: require('./assets/CinzelBlack.ttf'),
+      CinzelDecoRegular: require('./assets/CinzelRegular.ttf'),
       EBGaramond: require('./assets/EBGaramond.ttf'),
       EBGaramondItalic: require('./assets/EBGaramondItalic.ttf'),
       EBGaramondMedium: require('./assets/EBGaramond-Medium.ttf'),

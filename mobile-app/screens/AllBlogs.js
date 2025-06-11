@@ -60,7 +60,7 @@ const AllBlogs = ({ navigation }) => {
 
   return (
         <View style={styles.container}>
-            <Text style={styles.heading} >Lees meer over onze blogs!</Text>
+            <Text style={styles.heading} >Onze Blogs</Text>
 
             <TextInput
               style={styles.input}
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     marginBottom: 80,
   },
   heading: {
-    fontFamily: 'Cinzel',
+    fontFamily: 'CinzelBold',
     fontSize: 26,
     color: '#1b1f3b',
     marginBottom: 15,
