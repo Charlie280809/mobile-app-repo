@@ -33,7 +33,7 @@ const AllProducts = ({ navigation }) => { //functie die de homepagina van de app
 
     .then((res) => res.json()) //data van de API wordt omgezet naar formaat dat ja kan gebruiken (JSON)
     .then((data) =>
-      setProducts( //als we de data hebben, slaan we dzee op in de products state
+      setProducts( //als we de data hebben, slaan we deze op in de products state
         data.items.map((item) => ({
           id: item.product.id,
           title: item.product.fieldData.name,

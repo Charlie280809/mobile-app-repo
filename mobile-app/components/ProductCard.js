@@ -12,7 +12,7 @@ const ProductCard = ({image, title, price, onPress }) => {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={onPress} //gebruik de onPress-functie die wordt meegegeven vanuit de HomeScreen.js
+        onPress={onPress} //gebruik de onPress-functie die wordt meegegeven vanuit de AllProducts.js
       >
         <Text style={styles.buttonText}>Bekijk product</Text>
       </TouchableOpacity>

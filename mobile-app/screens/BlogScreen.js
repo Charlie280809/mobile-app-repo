@@ -2,25 +2,18 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
-const BlogScreen = () => {
+const BlogScreen = ({route, navigation}) => {
+  const {title, date, image, intro, content} = route.params; //haal de waarden uit de route.params
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.title}>De prachtige titel van dit statische blog met extra tekst om eens te zien</Text>
-        <Text style={styles.date}>23 februari 1982</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.date}>{date}</Text>
+        <Image source={image} style={styles.image}/>
 
-        <Image
-          source={require("../images/home thumbnail.jpg")}
-          style={styles.image}
-        />
+        <Text style={styles.intro}>{intro}</Text>
 
-        <Text style={styles.intro}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-        </Text>
-
-        <Text style={styles.content}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliquaStevelepossionswaaaaaastevelepoissionsteeveedundundundudndundundnudnudbatmaannduhduhdudhddunddnbatman
-        </Text>
+        <Text style={styles.content} numberOfLines={0}>{content}</Text>
 
         <StatusBar style="auto" />
       </ScrollView>
@@ -37,13 +30,14 @@ const styles = StyleSheet.create({
     },
     scrollContainer: {
       padding: 20,
+      paddingBottom: 350,
     },
     image: {
-      width: '100%',
-      height: '100%',
+      width: '80%',
+      height: '40%',
       borderRadius: 10,
       marginBottom: 20,
-    //   resizeMode: 'cover',
+      alignSelf: 'center',
     },
     title: {
       fontSize: 28,
@@ -54,7 +48,7 @@ const styles = StyleSheet.create({
     },
     date: {
       fontSize: 14,
-      color: '#444',
+      color: '#1b1f3b',
       marginBottom: 20,
       textAlign: 'center',
     },

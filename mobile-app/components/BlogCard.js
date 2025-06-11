@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const BlogCard = ({title, onPress }) => {
+const BlogCard = ({image, title, date, onPress }) => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.card}>
-      {/* <Image source={image} style={styles.image}/> */}
-      <Image
-        source={require("../images/home thumbnail.jpg")}
-        style={styles.image}
-      />
+      <Image source={image} style={styles.image}/>
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.date}>23 februari 1982</Text>
+      <Text style={styles.date}>{date}</Text>
 
       <TouchableOpacity
         style={styles.button}
@@ -27,8 +23,8 @@ const BlogCard = ({title, onPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: 260,
-    height: 380,
+    width: 300,
+    height: 408,
     padding: 16,
     backgroundColor: '#ededed',
     borderRadius: 10,
@@ -47,12 +43,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#1b1f3b',
     textAlign: 'center',
+    marginTop: 8,
   },
   date: {
     fontSize: 16,
     color: '#1b1f3b',
     marginTop: 5,
-    textAlign: 'center',
   },
   button: {
     width: '100%',

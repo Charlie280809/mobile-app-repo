@@ -3,6 +3,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import BlogCard from '../components/BlogCard';
 
+function removetime(str){
+  return str.slice(0, -14); // Remove the last 14 characters from the string
+}
+
 const AllBlogs = ({ navigation }) => {
   const [blogs, setBlogs] = useState([]); //maak een state aan voor de blogs
 
@@ -12,7 +16,7 @@ const AllBlogs = ({ navigation }) => {
       {
         headers: {
           Authorization: //voor toegang tot de API (als een soort van wachtwoord)
-          "Bearer d524e3a4bed0c8993bc87288c39e201bcbe7a1b122a745a699440021cfff4d05",
+          "Bearer 9067b3d353cb876ee5238c5cdc36562bcd1131eb5dfaaabb3a911fde4fb62810",
         },
       }
     )
@@ -24,9 +28,10 @@ const AllBlogs = ({ navigation }) => {
           id: item.id,
           title: item.fieldData.title,
           intro: item.fieldData.intro,
-          // content: item.fieldData.blog-content,
-          // date: item.fieldData.blog-date,
-          // image: {uri: item.skus[0]?.fieldData["thumbnail-image"]?.url},
+          content: item.fieldData.content2, //aanpassen naar 'content'?
+          date: removetime(item.fieldData.date),
+          image: { uri: item.fieldData["thumbnail-image"]?.url }
+
         }))
       )
     )
@@ -44,11 +49,10 @@ const AllBlogs = ({ navigation }) => {
                     key={blog.id}
                     title={blog.title}
                     intro={blog.intro}
-                    blog-content={blog.content}
+                    blogContent={blog.content}
                     date={blog.date}
                     image={blog.image}
-                    onPress={() => navigation.navigate("Blog", blog)}
-                    // onPress={() => navigation.navigate("Blog", {title: blog.title})}
+                    onPress={() => navigation.navigate("BlogScreen", blog)}
                   />
                 ))}
                </View>
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     alignItems: 'center',
-    paddingBottom: 120,
+    paddingBottom: 100,
   },
 });
 
