@@ -56,24 +56,24 @@ const styles = StyleSheet.create({
     paddingRight: 20,
   },
   title: {
+    fontFamily: 'CinzelBold',
     fontSize: 28,
-    fontWeight: 'bold',
     color: '#1b1f3b',
     marginTop: 20,
     marginBottom: 20,
     textAlign: 'center',
   },
   image:{
-    width: '100%',
-    height: '40%',
+    width: 350,
+    height: '30%',
     borderRadius: 10,
     marginBottom: 20,
   },
   h2: {
+    fontFamily: 'EBGaramondSemiBold',
     fontSize: 18,
     color: '#1b1f3b',
-    marginTop: 5,
-    textAlign: 'center',
+    marginBottom: 12,
   },
   button: {
     backgroundColor: '#6A5ACD',
@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'EBGaramondExtraBold',
+    fontSize: 18,
   }
 });
 

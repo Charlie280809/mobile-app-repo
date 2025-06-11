@@ -44,13 +44,6 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
               <Text style={styles.buttonText}>Toevoegen aan winkelmand</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => addToWishlist({ title, price, image, id: route.params.id })}
-            >
-              <Text style={styles.buttonText}>Toevoegen aan wishlist</Text>
-            </TouchableOpacity>
-
             <StatusBar style="auto" />
         </View>
     );
@@ -58,7 +51,6 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
 
 export default ProductScreen;
 
-//styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,

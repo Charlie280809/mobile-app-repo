@@ -29,17 +29,18 @@ export default AboutUsScreen;
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#bfa86a',
+      backgroundColor: '#f0ede4',
       padding: 20,
     },
     title: {
+      fontFamily: 'CinzelBold',
       fontSize: 28,
-      fontWeight: '700',
       color: '#1b1f3b',
       marginBottom: 10,
       textAlign: 'center',
     },
     h2: {
+      fontFamily: 'EBGaramond',
       fontSize: 18,
       color: '#1b1f3b',
       marginTop: 5,

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import * as Font from 'expo-font';
+import { View, ActivityIndicator } from 'react-native';
 
 import HomeScreen from './screens/HomeScreen.js';
 import ProductScreen from './screens/ProductScreen.js';
@@ -15,7 +16,25 @@ import Wishlist from './screens/Wishlist.js';
 const Stack = createStackNavigator();
 
 export default function App() {
-  return (
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    Font.loadAsync({
+      Cinzel: require('./assets/Cinzel.ttf'),
+      CinzelBold: require('./assets/CinzelBold.ttf'),
+      CinzelBlack: require('./assets/CinzelBlack.ttf'),
+      CinzelRegular: require('./assets/CinzelRegular.ttf'),
+      EBGaramond: require('./assets/EBGaramond.ttf'),
+      EBGaramondItalic: require('./assets/EBGaramondItalic.ttf'),
+      EBGaramondMedium: require('./assets/EBGaramond-Medium.ttf'),
+      EBGaramondSemiBold: require('./assets/EBGaramond-SemiBold.ttf'),
+      EBGaramondBold: require('./assets/EBGaramond-Bold.ttf'),
+      EBGaramondExtraBold: require('./assets/EBGaramond-ExtraBold.ttf'),
+    }).then(() => setFontsLoaded(true));
+  }, []);
+
+  if (!fontsLoaded) return <View><ActivityIndicator /></View>;  return (
+
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />

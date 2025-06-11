@@ -104,8 +104,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   heading: {
+    fontFamily: 'Cinzel',
     fontSize: 26,
-    fontWeight: 'bold',
     color: '#1b1f3b',
     marginBottom: 15,
     textAlign: 'center',
@@ -117,7 +117,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
     picker: {
-    flex: 1,
     backgroundColor: '#ededed',
     borderRadius: 8,
     marginBottom: 12,
