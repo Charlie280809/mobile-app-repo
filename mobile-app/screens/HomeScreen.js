@@ -30,16 +30,16 @@ const HomeScreen = ({ navigation }) => {
 
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate("Cart")}
+            onPress={() => navigation.navigate("Wishlist")}
           >
-            <Text style={styles.buttonText}>Bekijk winkelmand</Text>
+            <Text style={styles.buttonText}>Bekijk je verlanglijst</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate("Wishlist")}
+            onPress={() => navigation.navigate("AboutUs")}
           >
-            <Text style={styles.buttonText}>Bekijk je verlanglijst</Text>
+            <Text style={styles.buttonText}>Over ons</Text>
           </TouchableOpacity>
     </View>
   );
