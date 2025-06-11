@@ -95,8 +95,8 @@ const AllProducts = ({ navigation }) => { //functie die de homepagina van de app
                   onValueChange={setSortOption} //past de sorteeroptie aan wanneer de gebruiker een andere optie selecteert
                   style={styles.picker}
                 >
-                  <Picker.Item label="Prijs (<)" value="price-asc" />
-                  <Picker.Item label="Prijs (>)" value="price-desc" />
+                  <Picker.Item label="Prijs (↗️)" value="price-asc" />
+                  <Picker.Item label="Prijs (↘️)" value="price-desc" />
                   <Picker.Item label="Naam (A - Z)" value="name-asc" />
                   <Picker.Item label="Naam (Z - A)" value="name-desc" />
                 </Picker>
@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   heading: { //title 'Onze favorieten op dit moment!'
+    fontFamily: 'CinzelBold',
     fontSize: 26,
-    fontWeight: 'bold',
     color: '#1b1f3b',
     marginBottom: 15,
     textAlign: 'center',
@@ -137,7 +137,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#ededed',
     padding: 10,
     borderRadius: 8,
-    marginBottom: 20,
+    marginBottom: 12,
+    height: 50,
+    fontFamily: 'CinzelBold',
+    fontSize: 16,
   },
   pickerRow: {
     flexDirection: 'row',

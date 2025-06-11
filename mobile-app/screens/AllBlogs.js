@@ -31,7 +31,7 @@ const AllBlogs = ({ navigation }) => {
           id: item.id,
           title: item.fieldData.title,
           intro: item.fieldData.intro,
-          content: item.fieldData.content2, //aanpassen naar 'content'?
+          content: item.fieldData.content2,
           date: removetime(item.fieldData.date),
           image: { uri: item.fieldData["thumbnail-image"]?.url }
 
@@ -70,14 +70,15 @@ const AllBlogs = ({ navigation }) => {
               onChangeText={setSearchQuery} //elke keer dat de gebruiker iets typt, wordt de zoekopdracht aangepast
             />
 
-            <Picker
-              selectedValue={sortOption} //houd de huidige waarde van de picker bij
-              onValueChange={setSortOption} //past de sorteeroptie aan wanneer de gebruiker een andere optie selecteert
-              style={styles.picker}
-            >
-              <Picker.Item label="Datum (nieuwste eerst)" value="date-desc" />
-              <Picker.Item label="Datum (oudste eerst)" value="date-asc" />
-            </Picker>
+            <View style={styles.picker}>
+              <Picker
+                selectedValue={sortOption} //houd de huidige waarde van de picker bij
+                onValueChange={setSortOption} //past de sorteeroptie aan wanneer de gebruiker een andere optie selecteert
+              >
+                <Picker.Item label="Datum (nieuwste eerst)" value="date-desc" />
+                <Picker.Item label="Datum (oudste eerst)" value="date-asc" />
+              </Picker>
+            </View>
 
              <ScrollView contentContainerStyle={styles.scrollContainer}>
                <View style={styles.row}>
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   container:{
     backgroundColor: '#bfa86a',
     padding: 20,
-    marginBottom: 80,
+    marginBottom: 20,
   },
   heading: {
     fontFamily: 'CinzelBold',
@@ -115,7 +116,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#ededed',
     padding: 10,
     borderRadius: 8,
-    marginBottom: 20,
+    marginBottom: 12,
+    height: 50,
+    fontFamily: 'CinzelBold',
+    fontSize: 16,
   },
     picker: {
     backgroundColor: '#ededed',
@@ -124,7 +128,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     alignItems: 'center',
-    paddingBottom: 100,
+    paddingBottom: 160,
   },
 });
 

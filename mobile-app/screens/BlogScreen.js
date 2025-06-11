@@ -12,7 +12,7 @@ const BlogScreen = ({route, navigation}) => {
         <Text style={styles.date}>{date}</Text>
         <Image source={image} style={styles.image}/>
         <Text style={styles.intro}>{intro}</Text>
-        <Text style={styles.content} numberOfLines={0}>{content}</Text>
+        <Text style={styles.content}>{content}</Text>
         <StatusBar style="auto" />
       </ScrollView>
     </View>

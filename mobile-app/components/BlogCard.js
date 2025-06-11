@@ -24,13 +24,14 @@ const BlogCard = ({image, title, date, onPress }) => {
 const styles = StyleSheet.create({
   card: {
     width: 300,
-    height: 408,
+    height: 420,
     padding: 16,
     backgroundColor: '#ededed',
     borderRadius: 10,
     marginBottom: 20,
     alignItems: 'center',
     justifyContent: 'space-between',
+    flexDirection: 'column',
   },
   image: {
     width: '100%',
@@ -39,16 +40,17 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   title: {
+    fontFamily: 'EBGaramondBold',
     fontSize: 18,
-    fontWeight: 'bold',
     color: '#1b1f3b',
-    textAlign: 'center',
     marginTop: 8,
   },
   date: {
+    fontFamily: 'EBGaramond',
     fontSize: 16,
     color: '#1b1f3b',
     marginTop: 5,
+    alignSelf: 'flex-end',
   },
   button: {
     width: '100%',
@@ -59,8 +61,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'EBGaramondExtraBold',
+    fontSize: 18,
     color: '#fff',
   },
 });

@@ -22,11 +22,9 @@ export default function App() {
     Font.loadAsync({
       Cinzel: require('./assets/Cinzel.ttf'),
       CinzelBold: require('./assets/cinzel.bold.ttf'),
-      CinzelDecoBold: require('./assets/CinzelBold.ttf'),
-      CinzelDecoBlack: require('./assets/CinzelBlack.ttf'),
       CinzelDecoRegular: require('./assets/CinzelRegular.ttf'),
+      CinzelDecoBold: require('./assets/CinzelBold.ttf'),
       EBGaramond: require('./assets/EBGaramond.ttf'),
-      EBGaramondItalic: require('./assets/EBGaramondItalic.ttf'),
       EBGaramondMedium: require('./assets/EBGaramond-Medium.ttf'),
       EBGaramondSemiBold: require('./assets/EBGaramond-SemiBold.ttf'),
       EBGaramondBold: require('./assets/EBGaramond-Bold.ttf'),

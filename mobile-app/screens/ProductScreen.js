@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 const ProductScreen = ({ route, navigation }) => { //functie die de homepagina van de app weergeeft
-  const { title, price, image, description } = route.params; //haal de waarden uit de route.params
+  const { title, price, image, subtitle } = route.params; //haal de waarden uit de route.params
   const numericPrice = Number(price); 
 
 
@@ -21,7 +21,7 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
             <Image style={styles.image} source={{uri: image.uri}}/>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.price}>€{price}</Text>
-            <Text style={styles.description}>{description}</Text>
+            <Text style={styles.subtitle}>{subtitle}</Text>
 
             <View style={styles.quantityContainer}>
               <TouchableOpacity onPress={decreaseQuantity}>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     color: '#444',
     marginTop: 5
   },
-  description: {
+  subtitle: {
     fontSize: 14,
     color: '#222',
     marginTop: 5,

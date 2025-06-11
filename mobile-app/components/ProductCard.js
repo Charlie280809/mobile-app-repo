@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   card: {
     width: 160,
     height: 300,
-    padding: 16,
+    padding: 12,
     backgroundColor: '#ededed',
     borderRadius: 10,
     elevation: 5,
@@ -39,17 +39,17 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   title: {
+    fontFamily: 'EBGaramondBold',
     fontSize: 18,
-    fontWeight: 'bold',
     color: '#1b1f3b',
     marginTop: 10,
-    textAlign: 'center',
   },
   price: {
+    fontFamily: 'EBGaramond',
     fontSize: 16,
     color: '#1b1f3b',
     marginTop: 5,
-    textAlign: 'center',
+    alignSelf: 'flex-end',
   },
   button: {
     width: '100%',
@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'EBGaramondExtraBold',
+    fontSize: 18,
     color: '#fff',
   },
 });
