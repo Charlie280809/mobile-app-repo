@@ -73,10 +73,10 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   image: {
-    width: "80%",
-    height: "40%",
+    width: "70%",
+    height: "35%",
     borderRadius: 10,
-    marginBottom: 10
+    marginBottom: 10,
   },
   title: {
     fontFamily: 'CinzelBold',
@@ -139,8 +139,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
-    marginTop: 10,
     width: '48%',
+    marginBottom: 20,
   },
   buttonText: {
     color: '#fff',

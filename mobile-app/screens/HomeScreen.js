@@ -106,10 +106,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
 
     shadowColor: 'blue',
-    shadowOffset: { width: 0, height: 10 },
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 0.25,
-    elevation: 8,
+    elevation: 6,
   },
   buttonText: {
     color: '#fff',
