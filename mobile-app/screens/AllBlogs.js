@@ -4,49 +4,49 @@ import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
 import BlogCard from '../components/BlogCard';
 import { Picker } from "@react-native-picker/picker";
 
-function removetime(str){
-  return str.slice(0, -14); // Remove the last 14 characters from the string
+function removetime(str) {
+  return str.slice(0, -14);
 }
 
 const AllBlogs = ({ navigation }) => {
-  const [blogs, setBlogs] = useState([]); //maak een state aan voor de blogs
-  const [searchQuery, setSearchQuery] = useState(""); //searchQuery houd de huidige zoekopdracht bij & met setSearchQuery passen we de zoekopdracht aan wanneer de gebruiker iets typt
-  const [sortOption, setSortOption] = useState(""); //maak een state aan voor de sorteeroptie
+  const [blogs, setBlogs] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState("");
 
-  useEffect(() => { //dit stukje code wordt uitgevoerd zodra de pagina geladen wordt, hier haal je producten op uit de API
-    fetch( //HTTP-aanroep naar de Webflow API om productinformatie op te halen 
+  useEffect(() => {
+    fetch(
       "https://api.webflow.com/v2/collections/67bb07adca26b75c6b04003f/items",
       {
         headers: {
-          Authorization: //voor toegang tot de API (als een soort van wachtwoord)
-          "Bearer 9067b3d353cb876ee5238c5cdc36562bcd1131eb5dfaaabb3a911fde4fb62810",
+          Authorization:
+            "Bearer 9067b3d353cb876ee5238c5cdc36562bcd1131eb5dfaaabb3a911fde4fb62810",
         },
       }
     )
 
-    .then((res) => res.json()) //data van de API wordt omgezet naar formaat dat ja kan gebruiken (JSON)
-    .then((data) =>
-      setBlogs( //als we de data hebben, slaan we deze op in de products state
-        data.items.map((item) => ({
-          id: item.id,
-          title: item.fieldData.title,
-          intro: item.fieldData.intro,
-          content: item.fieldData.content2,
-          date: removetime(item.fieldData.date),
-          image: { uri: item.fieldData["thumbnail-image"]?.url }
+      .then((res) => res.json())
+      .then((data) =>
+        setBlogs(
+          data.items.map((item) => ({
+            id: item.id,
+            title: item.fieldData.title,
+            intro: item.fieldData.intro,
+            content: item.fieldData.content2,
+            date: removetime(item.fieldData.date),
+            image: { uri: item.fieldData["thumbnail-image"]?.url }
 
-        }))
+          }))
+        )
       )
-    )
-    .catch((err) => console.error("Error:", err)); //als er een fout optreedt, log deze in de console
+      .catch((err) => console.error("Error:", err));
   }, []);
-  
+
 
   // Filter blogs op zoekterm (titel of intro)
   const filteredBlogs = blogs.filter(
     (b) =>
-      b.title.toLowerCase().includes(searchQuery.toLowerCase()) 
-   );
+      b.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   // Sorteer blogs op datum
   const sortedBlogs = [...filteredBlogs].sort((a, b) => {
@@ -55,52 +55,52 @@ const AllBlogs = ({ navigation }) => {
 
     if (sortOption === "date-asc") return dateA - dateB;
     if (sortOption === "date-desc") return dateB - dateA;
-    return 0; // Geen sortering
+    return 0;
   });
 
   return (
-        <View style={styles.container}>
-            <Text style={styles.heading} >Onze Blogs</Text>
+    <View style={styles.container}>
+      <Text style={styles.heading} >Onze Blogs</Text>
 
-            <TextInput
-              style={styles.input}
-              placeholder="Zoek blogs..." //de tekst als het veld leeg is
-              placeholderTextColor="#999" 
-              value={searchQuery} //houd de huidige waarde van de zoekopdracht bij
-              onChangeText={setSearchQuery} //elke keer dat de gebruiker iets typt, wordt de zoekopdracht aangepast
+      <TextInput
+        style={styles.input}
+        placeholder="Zoek blogs..."
+        placeholderTextColor="#999"
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+      />
+
+      <View style={styles.picker}>
+        <Picker
+          selectedValue={sortOption}
+          onValueChange={setSortOption}
+        >
+          <Picker.Item label="Datum (nieuwste eerst)" value="date-desc" />
+          <Picker.Item label="Datum (oudste eerst)" value="date-asc" />
+        </Picker>
+      </View>
+
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <View style={styles.row}>
+          {sortedBlogs.map((blog) => (
+            <BlogCard
+              key={blog.id}
+              title={blog.title}
+              intro={blog.intro}
+              blogContent={blog.content}
+              date={blog.date}
+              image={blog.image}
+              onPress={() => navigation.navigate("BlogScreen", blog)}
             />
-
-            <View style={styles.picker}>
-              <Picker
-                selectedValue={sortOption} //houd de huidige waarde van de picker bij
-                onValueChange={setSortOption} //past de sorteeroptie aan wanneer de gebruiker een andere optie selecteert
-              >
-                <Picker.Item label="Datum (nieuwste eerst)" value="date-desc" />
-                <Picker.Item label="Datum (oudste eerst)" value="date-asc" />
-              </Picker>
-            </View>
-
-             <ScrollView contentContainerStyle={styles.scrollContainer}>
-               <View style={styles.row}>
-                {sortedBlogs.map((blog) => (
-                   <BlogCard
-                    key={blog.id}
-                    title={blog.title}
-                    intro={blog.intro}
-                    blogContent={blog.content}
-                    date={blog.date}
-                    image={blog.image}
-                    onPress={() => navigation.navigate("BlogScreen", blog)}
-                  />
-                ))}
-               </View>
-             </ScrollView>
+          ))}
         </View>
-    );
+      </ScrollView>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     backgroundColor: '#bfa86a',
     padding: 20,
     marginBottom: 20,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     fontFamily: 'CinzelBold',
     fontSize: 16,
   },
-    picker: {
+  picker: {
     backgroundColor: '#ededed',
     borderRadius: 8,
     marginBottom: 12,

@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { useCart } from '../components/CartContext'; // importeer de cart context
+import { useCart } from '../components/CartContext';
 
 const CartScreen = ({ navigation }) => {
-  const { cartItems, removeFromCart } = useCart(); // Haal de cart context op
+  const { cartItems, removeFromCart } = useCart();
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * (item.quantity || 1), 0
@@ -13,7 +13,7 @@ const CartScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Winkelmand</Text>
-      {cartItems.length === 0 ? ( // Als de winkelwagen leeg is: dit bericht
+      {cartItems.length === 0 ? (
         <Text style={styles.emptyText}>Je winkelmand is momenteel leeg.</Text>
       ) : (
         <ScrollView style={styles.scrollContainer}>
@@ -46,13 +46,13 @@ const CartScreen = ({ navigation }) => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("AllProducts")} // navigatie naar HomeScreen
+          onPress={() => navigation.navigate("AllProducts")}
         >
           <Text style={styles.buttonText}>Browse producten</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("Home")} // navigatie naar HomeScreen
+          onPress={() => navigation.navigate("Home")}
         >
           <Text style={styles.buttonText}>Terug naar Home</Text>
         </TouchableOpacity>

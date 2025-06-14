@@ -24,8 +24,6 @@ const AboutUsScreen = ({ navigation }) => {
   );
 };
 
-export default AboutUsScreen;
-
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -72,4 +70,6 @@ const styles = StyleSheet.create({
       shadowRadius: 3.84,
       elevation: 5,
     },
-  });  
+  });
+
+export default AboutUsScreen;

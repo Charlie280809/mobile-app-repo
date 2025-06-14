@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { useCart } from '../components/CartContext'; // importeer de cart context
+import { useCart } from '../components/CartContext';
 
-const ProductScreen = ({ route, navigation }) => { //functie die de homepagina van de app weergeeft
-  const { addToCart } = useCart(); // Haal de addToCart functie uit de cart context
-  const { title, price, image, subtitle } = route.params; //haal de waarden uit de route.params
+const ProductScreen = ({ route, navigation }) => {
+  const { addToCart } = useCart();
+  const { title, price, image, subtitle } = route.params;
   const numericPrice = Number(price);
 
-  const [quantity, setQuantity] = useState(1); //maak een state aan voor de hoeveelheid van het product (deze state staat standaard op 1)
+  const [quantity, setQuantity] = useState(1);
 
-  const increaseQuantity = () => setQuantity(quantity + 1); //functie die de hoeveelheid verhoogt
+  const increaseQuantity = () => setQuantity(quantity + 1);
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1); //functie die de hoeveelheid verlaagt
+      setQuantity(quantity - 1);
     }
   };
 

@@ -2,9 +2,6 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-// import { LinearGradient } from 'expo-linear-gradient';
-
-
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
@@ -17,13 +14,6 @@ const HomeScreen = ({ navigation }) => {
           />
 
           <Text style={styles.h3}>Als je houdt van de gothic en grunge aesthetic, dan ben je op de juiste site belandt. Op Nocturnia vind je variërende accessoires die aansluiten bij jouw stijl.</Text>
-
-    {/* <LinearGradient
-      colors={['#ff9a9e', '#fad0c4']}
-      style={styles.container}
-    >
-      <Text>Inhoud met gradient achtergrond</Text>
-    </LinearGradient> */}
 
           <TouchableOpacity
             style={styles.button}
