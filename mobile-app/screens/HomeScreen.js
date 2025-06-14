@@ -41,7 +41,7 @@ const HomeScreen = ({ navigation }) => {
 
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate("Wishlist")}
+            onPress={() => navigation.navigate("CartScreen")}
           >
             <Text style={styles.buttonText}>Ga naar winkelmand</Text>
           </TouchableOpacity>
