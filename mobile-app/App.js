@@ -13,6 +13,11 @@ import BlogScreen from './screens/BlogScreen.js';
 import AboutUs from './screens/AboutUs.js';
 import CartScreen from './screens/CartScreen.js';
 
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs([
+  'Support for defaultProps will be removed from function components',
+]);
 
 const Stack = createStackNavigator();
 
