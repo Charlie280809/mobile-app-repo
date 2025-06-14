@@ -85,6 +85,12 @@ const styles = StyleSheet.create({
     height: '30%',
     borderRadius: 10,
     marginBottom: 20,
+
+    shadowColor: '#000',
+    shadowOffset: { width: 8, height: 10 },
+    shadowOpacity: 0.25,
+    shadowRadius: 0.25,
+    elevation: 8,
   },
   h3: {
     fontFamily: 'EBGaramondSemiBold',
@@ -99,7 +105,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginTop: 10,
 
-    shadowColor: '#000',
+    shadowColor: 'blue',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.25,
     shadowRadius: 0.25,

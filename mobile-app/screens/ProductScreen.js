@@ -18,8 +18,8 @@ const ProductScreen = ({ route, navigation }) => { //functie die de homepagina v
 
   return (
         <View style={styles.container}>
-            <Image style={styles.image} source={{uri: image.uri}}/>
             <Text style={styles.title}>{title}</Text>
+            <Image style={styles.image} source={{uri: image.uri}}/>
             <Text style={styles.price}>€{price}</Text>
             <Text style={styles.subtitle}>{subtitle}</Text>
 
@@ -65,25 +65,30 @@ const styles = StyleSheet.create({
   image: {
     width: "80%",
     height: "40%",
-    borderRadius: 5,
+    borderRadius: 10,
     marginBottom: 20
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 5,
+    fontFamily: 'CinzelBold',
+    fontSize: 30,
+    marginBottom: 10,
+    width: '90%',
+    textAlign: 'center',
+    color: '#1B1F3B',
   },
   price: {
-    fontSize: 18,
-    color: '#444',
-    marginTop: 5
+    fontFamily: 'EBGaramondSemiBold',
+    fontSize: 20,
+    color: '#1B1F3B',
+    marginTop: 5,
   },
   subtitle: {
-    fontSize: 14,
-    color: '#222',
+    fontFamily: 'EBGaramondMedium',
+    fontSize: 18,
+    color: '#1B1F3B',
     marginTop: 5,
-    padding: 20,
-    textAlign: 'center',
+    marginBottom: 20,
+    width: '80%',
   },
   quantityContainer: {
     flexDirection: 'row',
@@ -91,23 +96,26 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   quantityButton: {
+    fontFamily: 'CinzelBold',
     fontSize: 24,
     color: '#444',
     padding: 10,
-    borderRadius: 5,
-    backgroundColor: '#ededed',
+    borderRadius: 20,
+    backgroundColor: '#F0EDE4',
   },
   quantityText: {
+    fontFamily: 'CinzelBold',
     fontSize: 24,
     color: '#444',
     padding: 10,
-    borderRadius: 5,
-    backgroundColor: '#ededed',
+    borderRadius: 2,
+    backgroundColor: '#F0EDE4',
     marginHorizontal: 10,
   },
   totalPrice: {
+    fontFamily: 'EBGaramondSemiBold',
     fontSize: 18,
-    color: '#444',
+    color: '#1B1F3B',
     marginTop: 5
   },
   button: {
@@ -119,7 +127,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'EBGaramondExtraBold',
+    fontSize: 18,
   },
 });
