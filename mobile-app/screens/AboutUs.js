@@ -29,11 +29,11 @@ export default AboutUsScreen;
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#f0ede4',
+      backgroundColor: '#bfa86a',
       padding: 20,
     },
     title: {
-      fontFamily: 'CinzelBold',
+      fontFamily: 'CinzelDecoBold',
       fontSize: 28,
       color: '#1b1f3b',
       marginBottom: 10,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
       alignSelf: 'center',
     },
     founderContainer: {
-      width: '80%',
+      width: '70%',
       flexDirection: 'row',
       alignItems: 'center',
       gap: 12,
@@ -65,5 +65,11 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       marginBottom: 20,
       alignSelf: 'center',
+
+      shadowColor: '#000',
+      shadowOffset: {width: 0, height: 2},
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
     },
   });  

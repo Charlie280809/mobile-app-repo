@@ -9,7 +9,7 @@ const BlogCard = ({image, title, date, onPress }) => {
     <View style={styles.card}>
       <Image source={image} style={styles.image}/>
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.date}>{new Date(date).toDateString()}</Text>
+      <Text style={styles.date}>{date}</Text>
 
       <TouchableOpacity
         style={styles.button}
